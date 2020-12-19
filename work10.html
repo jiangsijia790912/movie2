@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>无标题文档</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        body {
+            background-color: rgba(138, 164, 168, 0.904);
+        }
+
+        .clear:after {
+            content: '';
+            display: block;
+            height: 0;
+            clear: both;
+        }
+
+        .header {
+            height: 100px;
+        }
+
+        .container {
+            width: 1300px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            /* margin-top: 15px; */
+            float: left;
+            height: 110px;
+            width: 350px;
+        }
+
+        .nav {
+            float: left;
+            margin-top: 42px;
+            margin-left:50px;
+        }
+
+        .nav li {
+            float: left;
+            margin-left: 70px;
+            font-size: 18px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .nav li:hover {
+            width: 54px;
+            border-bottom: 4px solid teal;
+        }
+
+        .nav a {
+            color: black;
+            font-weight: bolder;
+        }
+
+        .right {
+            float: right;
+            width: 60px;
+            height: 12px;
+            font-size: 14px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(101, 101, 101, 1);
+            margin-top: 44px;
+            margin-right: 40px;
+        }
+
+        .form {
+            float: right;
+            margin-top: 31px;
+            margin-right:20px;
+        }
+
+        .search {
+            float: left;
+            width: 260px;
+            padding: 12px 19px;
+            border: 1px solid teal;
+        }
+
+        .submit {
+            float: left;
+            width: 50px;
+            height: 42px;
+            background: teal url(./im/search.png) no-repeat center center;
+            border: 1px solid teal;
+        }
+
+        /* body{
+        height:2500px;
+    } */
+        #div2 {
+            height: 30px;
+            width: 100%;
+            position: absolute;
+        }
+
+        #div3 {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        #div4,
+        #div5 {
+            display: inline-block;
+        }
+
+        .up {
+            display: none;
+            width: 85px;
+            height: 85px;
+            background-image: url(./im/2.png);
+            position: fixed;
+            right: 10px;
+            bottom: 20px;
+        }
+
+        .bottom {
+            width: 100%;
+            height: 110px;
+            margin: 60px auto 0 auto;
+            background-color: grey;
+        }
+
+        .bottom1 {
+            width: 400px;
+            padding-top: 40px;
+            margin: 0 auto;
+        }
+
+        .bottom p {
+            display: inline-block;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="header" id="div2">
+        <div class="container clear">
+            <img src="./im/图片1.png" alt="这是一张图片" class="logo" />
+            <ul class="nav clear">
+                <li><a href="#" id="a1">首页</a></li>
+                <li><a href="#" id="a2">看电影ing</a></li>
+            </ul>
+            <span class="right" id="span1">个人中心</span>
+            <form class="form">
+                <input type="text" placeholder="搜索你喜欢的电影……" class="search" id="ip" />
+                <input type="button" class="submit" id="ip2" />
+            </form>
+        </div>
+    </div>
+    <div id="div3">
+        <div id="div4"></div>
+        <div id="div5">
+            <div id="div6"></div>
+            <div id="div7"></div>
+            <div id="div8"></div>
+            <div id="div10"></div>
+        </div>
+    </div>
+    <div id="div9"></div>
+    <div id="top" class="up" onclick="goTop()"></div>
+    <div class="bottom">
+        <div class="bottom1">
+            <p>版权声明2020 电影ing 姜思佳所有仅作业</p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var flag = false;
+    var flag3 = false;
+    var ip = document.getElementById("ip");
+    var ip2 = document.getElementById("ip2");
+    var div3 = document.getElementById("div3");
+    var div4 = document.getElementById("div4");
+    var div5 = document.getElementById("div5");
+    var div6 = document.getElementById("div6");
+    var div7 = document.getElementById("div7");
+    var div8 = document.getElementById("div8");
+    var div10 = document.getElementById("div10");
+    function main() {
+        flag3 = false;
+        flag = true;
+        var div11 = document.createElement("div");
+        div4.appendChild(div11);
+        var index = 31;
+        var m = 0;
+        var flag2 = false;
+        var img = document.createElement("img");
+        img.setAttribute("src", "./im/图片31.webp");
+        img.setAttribute("style", "width:550px;height:650px;margin-top:140px; margin-left:200px;");
+        div11.appendChild(img);
+        var timeId = setInterval(function () {
+            div11.innerHTML = "";
+            if (flag2 == false) {
+                index = index + 1;
+                flag2 = true;
+            }
+            img.setAttribute("src", "./im/图片" + index + ".webp");
+            img.setAttribute("style", "width:550px;height:650px;margin-top:140px; margin-left:200px;");
+            div11.appendChild(img);
+            m = m + 1;
+            index = index + 1;
+            if (index == 39) {
+                index = 31;
+            }
+        }, 2000);
+
+        var p = document.createElement("p");
+        div6.innerHTML = "Login";
+        div6.setAttribute("style", "font-size:50px;border-bottom:4px solid green;width:140px");
+        var p1 = document.createElement("p");
+        p1.innerHTML = "账号";
+        p1.setAttribute("style", "font-size:20px;margin-top:40px;")
+        div7.appendChild(p1);
+        var input1 = document.createElement("input");
+        input1.setAttribute("style", "width:250px;height:20px;margin-top:10px;");
+        var pp1 = document.createElement("p");
+        div7.appendChild(input1);
+        input1.onfocus = function () {
+            pp1.innerHTML = "支持中文数字";
+            div7.appendChild(pp1);
+            input1.onblur = function () {
+                div7.removeChild(pp1);
+                if (input1.value == "") {
+                    pp1.innerHTML = "用户名不能为空";
+                    div7.appendChild(pp1);
+                }
+            }
+        }
+        div7.style.height = "60px";
+        var p2 = document.createElement("p");
+        p2.innerHTML = "密码";
+        p2.setAttribute("style", "font-size:20px;margin-top:30px;");
+        div8.appendChild(p2);
+        var input2 = document.createElement("input");
+        input2.type = "password";
+        input2.setAttribute("style", "width:250px;height:20px;margin-top:10px;");
+        div8.appendChild(input2);
+        var pp2 = document.createElement("p");
+        input2.onfocus = function () {
+            pp2.innerHTML = "建议使用两种字符组合";
+            div8.appendChild(pp2);
+            input2.onblur = function () {
+                div8.removeChild(pp2);
+                if (input2.value == "") {
+                    pp2.innerHTML = "密码不能为空";
+                    div8.appendChild(pp2);
+                }
+            }
+        }
+        div8.style.height = "60px";
+        div5.setAttribute("style", "padding-top:170px;padding-bottom:130px;padding-right:100px;padding-left:90px;weight:400px;float:right;margin-top:140px;margin-right:220px;border:2px solid white;");
+        var btn1 = document.createElement("button");
+        btn1.innerHTML = "登录";
+        btn1.setAttribute("style", "width:150px;height:50px;background-color:green;margin-top:40px;font-size:20px;");
+        div10.appendChild(btn1);
+        var span1 = document.getElementById("span1");
+        btn1.onclick = function () {
+            if ((input1.value != "") && (input2.value != "")) {
+                span1.innerHTML = "用户：" + input1.value;
+            }
+            input1.value = "";
+            input2.value = "";
+        }
+
+    }
+    main();
+    var a1 = document.getElementById("a1");
+    var a2 = document.getElementById("a2");
+    var a3 = document.getElementById("a3");
+    var div9 = document.getElementById("div9");
+    a1.onclick = function () {
+        if (flag == false) {
+            div9.innerHTML = "";
+            main();
+        }
+
+    }
+    a2.onclick = function () {
+        flag = false;
+        div4.innerHTML = "";
+        div6.innerHTML = "";
+        div7.innerHTML = "";
+        div8.innerHTML = "";
+        div10.innerHTML = "";
+        div5.style.opacity = "0";
+
+        for (var i = 31; i < 39 && flag3 == false; i++) {
+
+            var div11 = document.createElement("div");
+            div9.appendChild(div11);
+            var img3 = document.createElement("img");
+            img3.src = "./im/图片" + i + ".webp";
+            img3.setAttribute("style", "height:240px;margin-top:30px;margin-left:30px;");
+            div11.appendChild(img3);
+            div11.setAttribute("style", "width:1000px;height:300px;background-color:white;margin:60px auto;border:30px solid grey;");
+            var p3 = document.createElement("p");
+            if (i == 31) {
+                p3.innerHTML = " 复仇者联盟4：终局之战 Avengers: Endgame" + "</br>" + "导演: 安东尼·罗素 / 乔·罗素" + "</br>" + "主演: 小罗伯特·唐尼 / 克里斯·埃文斯 / 马克·鲁弗洛" + "</br>" + "类型: 剧情 / 动作 / 科幻 / 奇幻 / 冒险" + "</br>" + "制片国家/地区: 美国" + "</br>" + "年份: 2019";
+                img3.onclick = function () {
+                    window.open("https://movie.douban.com/subject/26100958/", "复仇者联盟4", "height=400px,width=800px,left=400px,top=150px");
+                }
+                p3.setAttribute("style", "display:inline-block;float:right;margin-top:50px;margin-right:50px;line-height:35px;");
+                div11.style.marginTop = "150px";
+            } else if (i == 32) {
+                p3.innerHTML = "阿凡达 Avatar" + "</br>" + "导演: 詹姆斯·卡梅隆" + "</br>" + "主演: 萨姆·沃辛顿 / 佐伊·索尔达娜 / 西格妮·韦弗" + "</br>" + "类型: 动作 / 科幻 / 冒险" + "</br>" + "制片国家/地区: 美国/英国" + "</br>" + "年份: 2009";
+                img3.onclick = function () {
+                    window.open("https://movie.douban.com/subject/1652587/", "阿凡达", "height=400px,width=800px,left=400px,top=150px");
+                }
+                p3.setAttribute("style", "display:inline-block;float:right;margin-top:50px;margin-right:350px;line-height:35px;");
+            } else if (i == 33) {
+                p3.innerHTML = "泰坦尼克号 Titanic" + "</br>" + "导演: 詹姆斯·卡梅隆" + "</br>" + "主演: 莱昂纳多·迪卡普里奥 / 凯特·温丝莱特 / 比利·赞恩" + "</br>" + "类型: 剧情 / 爱情 / 灾难" + "</br>" + "制片国家/地区: 美国" + "</br>" + "年份: 1997";
+                img3.onclick = function () {
+                    window.open("https://movie.douban.com/subject/1292722/", "泰坦尼克号", "height=400px,width=800px,left=400px,top=150px");
+                }
+                p3.setAttribute("style", "display:inline-block;float:right;margin-top:50px;margin-right:300px;line-height:35px;");
+            } else if (i == 34) {
+                p3.innerHTML = " 星球大战7：原力觉醒 Star Wars: The Force Awakens" + "</br>" + "导演: J·J·艾布拉姆斯" + "</br>" + "主演: 哈里森·福特 / 马克·哈米尔 / 凯丽·费雪" + "</br>" + "类型: 动作 / 科幻 / 冒险" + "</br>" + "制片国家/地区: 美国" + "</br>" + "年份: 2015";
+                img3.onclick = function () {
+                    window.open("https://movie.douban.com/subject/20326665/", "星球大战7", "height=400px,width=800px,left=400px,top=150px");
+                }
+                p3.setAttribute("style", "display:inline-block;float:right;margin-top:50px;margin-right:320px;line-height:35px;");
+            } else if (i == 35) {
+                p3.innerHTML = "复仇者联盟3：无限战争 Avengers: Infinity War" + "</br>" + "导演: 安东尼·罗素 / 乔·罗素" + "</br>" + "主演: 小罗伯特·唐尼 / 克里斯·海姆斯沃斯 / 克里斯·埃文斯" + "</br>" + "类型: 动作 / 科幻 / 奇幻 / 冒险" + "</br>" + "制片国家/地区: 美国" + "</br>" + "年份: 2018";
+                img3.onclick = function () {
+                    window.open("https://movie.douban.com/subject/24773958/", "复仇者联盟3", "height=400px,width=800px,left=400px,top=150px");
+                }
+                p3.setAttribute("style", "display:inline-block;float:right;margin-top:50px;margin-right:280px;line-height:35px;");
+            } else if (i == 36) {
+                p3.innerHTML = "侏罗纪世界 Jurassic World" + "</br>" + "导演: 科林·特雷沃罗" + "</br>" + "主演: 克里斯·帕拉特 / 布莱丝·达拉斯·霍华德 / 文森特·多诺费奥" + "</br>" + "类型: 动作 / 科幻 / 冒险" + "</br>" + "制片国家/地区: 美国" + "</br>" + "年份: 2015";
+                img3.onclick = function () {
+                    window.open("https://movie.douban.com/subject/10440138/", "侏罗纪世界", "height=400px,width=800px,left=400px,top=150px");
+                }
+                p3.setAttribute("style", "display:inline-block;float:right;margin-top:50px;margin-right:230px;line-height:35px;");
+            } else if (i == 37) {
+                p3.innerHTML = "狮子王 The Lion King" + "</br>" + "导演: 乔恩·费儒" + "</br>" + "主演: 唐纳德·格洛弗 / 阿尔法·伍达德 / 詹姆斯·厄尔·琼斯" + "</br>" + "类型: 剧情 / 动画 / 冒险" + "</br>" + "制片国家/地区: 美国" + "</br>" + "年份: 2019";
+                img3.onclick = function () {
+                    window.open("https://movie.douban.com/subject/26884354/", "狮子王", "height=400px,width=800px,left=400px,top=150px");
+                }
+                p3.setAttribute("style", "display:inline-block;float:right;margin-top:50px;margin-right:280px;line-height:35px;");
+            } else if (i == 38) {
+                p3.innerHTML = "冰雪奇缘2 Frozen II" + "</br>" + "导演: 克里斯·巴克 / 珍妮弗·李" + "</br>" + "主演: 克里斯汀·贝尔 / 伊迪娜·门泽尔 / 乔什·加德" + "</br>" + "类型: 喜剧 / 动画 / 冒险 / 歌舞" + "</br>" + "制片国家/地区: 美国" + "</br>" + "年份: 2019";
+                img3.onclick = function () {
+                    window.open("https://movie.douban.com/subject/25887288/", "冰雪奇缘2", "height=400px,width=800px,left=400px,top=150px");
+                }
+                p3.setAttribute("style", "display:inline-block;float:right;margin-top:50px;margin-right:340px;line-height:35px;");
+            }
+            div11.appendChild(p3);
+
+
+        }
+        flag3 = true;
+    }
+    var arr = ["复仇者联盟4", "阿凡达", "泰坦尼克号", "星球大战7", "复仇者联盟3", "侏罗纪世界", "狮子王", "冰雪奇缘2"];
+    ip2.onclick = function () {
+        if (arr.indexOf(ip.value) == -1) {
+            alert("该网站无此资源");
+        } else if (ip.value == "冰雪奇缘2") {
+            a2.onclick();
+            document.documentElement.scrollTop = document.body.scrollTop = 3000;
+        } else if (ip.value == "狮子王") {
+            a2.onclick();
+            document.documentElement.scrollTop = document.body.scrollTop = 2500;
+        } else if (ip.value == "侏罗纪世界") {
+            a2.onclick();
+            document.documentElement.scrollTop = document.body.scrollTop = 2100;
+        } else if (ip.value == "复仇者联盟3") {
+            a2.onclick();
+            document.documentElement.scrollTop = document.body.scrollTop = 1700;
+        } else if (ip.value == "星球大战7") {
+            a2.onclick();
+            document.documentElement.scrollTop = document.body.scrollTop = 1250;
+        } else if (ip.value == "泰坦尼克号") {
+            a2.onclick();
+            document.documentElement.scrollTop = document.body.scrollTop = 850;
+        } else if (ip.value == "阿凡达") {
+            a2.onclick();
+            document.documentElement.scrollTop = document.body.scrollTop = 420;
+        } else {
+            a2.onclick();
+            document.documentElement.scrollTop = document.body.scrollTop = 100;
+        }
+        ip.value = "";
+    }
+    function goTop() {
+        var odiv = document.getElementById("top");
+        document.documentElement.scrollTop = document.body.scrollTop = 0;
+    }
+    window.onscroll = function () {
+        var div2 = document.getElementById("div2");
+        var _scroll = document.body.scrollTop || document.documentElement.scrollTop;
+        document.title = _scroll;
+        div2.style.position = "fixed";
+        div2.style.top = 0;
+
+        var odiv = document.getElementById("top");
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop > 1200) {
+            odiv.style.display = "block";
+        } else {
+            odiv.style.display = "none"
+        }
+    }
+
+</script>
+
+</html>
